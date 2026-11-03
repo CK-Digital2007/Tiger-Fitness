@@ -8,6 +8,8 @@
   --muted: #aaaaaa;
 }
 
+/* GLOBAL */
+
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +49,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(9, 9, 9, .97);
+  background: rgba(9, 9, 9, 0.97);
   border-bottom: 1px solid #292929;
 }
 
@@ -64,7 +66,7 @@ img {
   gap: 10px;
   font-size: 21px;
   font-weight: 900;
-  letter-spacing: -.7px;
+  letter-spacing: -0.7px;
 }
 
 .logo-image {
@@ -87,7 +89,7 @@ img {
 .nav-links a {
   font-size: 13px;
   font-weight: 700;
-  transition: color .25s ease;
+  transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
@@ -110,34 +112,39 @@ img {
   cursor: pointer;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero {
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
-        url("assets/images/gym-interior.png");
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+  background-image: url("assets/images/gym-interior.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
+  z-index: 0;
 
   background: linear-gradient(
     90deg,
-    rgba(0,0,0,.92),
-    rgba(0,0,0,.68),
-    rgba(0,0,0,.22)
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.62) 48%,
+    rgba(0, 0, 0, 0.25) 100%
   );
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  padding: 70px 0;
+  width: 100%;
+  padding: 75px 0;
 }
 
 .eyebrow {
@@ -153,7 +160,7 @@ img {
 .about-content h2 {
   font-family: "Barlow Condensed", sans-serif;
   font-size: clamp(48px, 8vw, 86px);
-  line-height: .98;
+  line-height: 0.98;
   font-weight: 900;
 }
 
@@ -183,9 +190,9 @@ img {
   padding: 13px 23px;
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: .4px;
+  letter-spacing: 0.4px;
   border-radius: 4px;
-  transition: .25s ease;
+  transition: 0.25s ease;
   cursor: pointer;
 }
 
@@ -234,7 +241,7 @@ img {
   letter-spacing: 1px;
 }
 
-/* SECTIONS */
+/* GENERAL SECTIONS */
 
 .section {
   padding: 95px 0;
@@ -260,7 +267,7 @@ img {
   font-size: 14px;
 }
 
-/* ABOUT */
+/* ABOUT SECTION */
 
 .about-grid {
   display: grid;
@@ -308,7 +315,7 @@ img {
   color: #ddd;
 }
 
-/* SERVICES */
+/* SERVICES SECTION */
 
 .program-grid {
   display: grid;
@@ -321,7 +328,7 @@ img {
   border: 1px solid #292929;
   overflow: hidden;
   border-radius: 5px;
-  transition: .25s ease;
+  transition: 0.25s ease;
 }
 
 .program-card:hover {
@@ -352,7 +359,7 @@ img {
   margin-top: 8px;
 }
 
-/* MEMBERSHIP */
+/* MEMBERSHIP SECTION */
 
 .membership-box {
   background: var(--surface);
@@ -377,7 +384,7 @@ img {
   margin-top: 7px;
 }
 
-/* GALLERY */
+/* GALLERY SECTION */
 
 .gallery-grid {
   display: grid;
@@ -400,7 +407,7 @@ img {
   margin-top: 20px;
 }
 
-/* CONTACT */
+/* CONTACT SECTION */
 
 .contact-box {
   background: var(--surface);
@@ -475,7 +482,7 @@ img {
   margin-top: 22px !important;
 }
 
-/* TABLET */
+/* TABLET RESPONSIVE */
 
 @media (max-width: 900px) {
   .program-grid {
@@ -491,9 +498,11 @@ img {
   }
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 
 @media (max-width: 700px) {
+
+  /* NAVIGATION */
 
   .navbar {
     min-height: 75px;
@@ -534,30 +543,50 @@ img {
     height: 53px;
   }
 
+  /* MOBILE HERO */
+
   .hero {
     min-height: 590px;
-    background-position: 58% center;
+    background-size: cover;
+    background-position: 65% center;
   }
 
   .hero-overlay {
     background: linear-gradient(
       90deg,
-      rgba(0,0,0,.88),
-      rgba(0,0,0,.55)
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.48) 65%,
+      rgba(0, 0, 0, 0.28) 100%
     );
   }
 
+  .hero-content {
+    padding: 55px 0;
+  }
+
   .hero h1 {
-    font-size: 53px;
+    font-size: clamp(42px, 11vw, 53px);
+    line-height: 1.02;
   }
 
   .hero-description {
     font-size: 14px;
+    line-height: 1.6;
   }
+
+  .hero-note {
+    margin-top: 35px;
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  /* SERVICE STRIP */
 
   .trust-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* ABOUT */
 
   .about-grid {
     grid-template-columns: 1fr;
@@ -567,9 +596,13 @@ img {
     height: 300px;
   }
 
+  /* SERVICES */
+
   .program-grid {
     grid-template-columns: 1fr;
   }
+
+  /* GALLERY */
 
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -579,11 +612,15 @@ img {
     height: 155px;
   }
 
+  /* MEMBERSHIP */
+
   .membership-box {
     flex-direction: column;
     align-items: flex-start;
     padding: 25px;
   }
+
+  /* CONTACT */
 
   .contact-box {
     flex-direction: column;
@@ -595,42 +632,47 @@ img {
     width: 100%;
   }
 
+  /* GENERAL */
+
   .section {
     padding: 68px 0;
   }
 }
+
+/* SMALL MOBILE DEVICES */
+
+@media (max-width: 380px) {
+
+  .hero {
+    min-height: 560px;
+    background-position: 68% center;
+  }
+
+  .hero h1 {
+    font-size: 39px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-note {
+    letter-spacing: 2px;
+  }
+
+  .trust-grid {
+    font-size: 11px;
+  }
+}
+
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
+    transition-duration: 0.01ms !important;
   }
-}
-@media (max-width: 768px) {
-    .hero {
-        background-size: cover;
-        background-position: 60% center;
-        min-height: 520px;
-    }
-
-    .hero::before {
-        background: rgba(0, 0, 0, 0.35);
-    }
-
-    .hero-content {
-        max-width: 100%;
-        padding: 40px 20px;
-    }
-
-    .hero h1 {
-        font-size: clamp(32px, 9vw, 44px);
-        line-height: 1.05;
-    }
-
-    .hero p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
 }
