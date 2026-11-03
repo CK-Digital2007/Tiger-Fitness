@@ -113,14 +113,13 @@ img {
 /* HERO */
 
 .hero {
-  min-height: 690px;
-  display: flex;
-  align-items: center;
-  position: relative;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+        url("assets/images/gym-interior.png");
 
-  background:
-    url("assets/images/gym-interior.png")
-    center / cover no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .hero-overlay {
@@ -608,4 +607,30 @@ img {
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
   }
+}
+@media (max-width: 768px) {
+    .hero {
+        background-size: cover;
+        background-position: 60% center;
+        min-height: 520px;
+    }
+
+    .hero::before {
+        background: rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 9vw, 44px);
+        line-height: 1.05;
+    }
+
+    .hero p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
 }
